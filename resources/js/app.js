@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -31,6 +30,32 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//add vue router
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
+
+const routes = [
+    {path: '/dashboard', component: require('./components/Dashboard.vue')},
+    {path: '/profile', component: require('./components/Profile.vue')}
+]
+
+// 3. Create the router instance and pass the `routes` option
+// You can pass in additional options here, but let's
+// keep it simple for now.
+const router = new VueRouter({
+    mode: 'history',
+    routes // short for `routes: routes`
+})
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router
 });
